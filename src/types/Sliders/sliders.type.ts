@@ -1,4 +1,4 @@
-interface SlidersType {
+export interface SlidersType {
     albumId: number;
     id: number;
     title: string;

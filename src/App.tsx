@@ -1,25 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import { useFetchHook } from "./hooks/useFetch/useFetch.hook";
+
+import { Container } from "./components/Container/container.component";
+import Slider from "./components/Slider/slider.component";
 
 function App() {
+  const { data, loading } = useFetchHook('photos');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Container>
+          {!loading && <Slider data={data.slice(0, 6)} />}
+          {loading && <>Loading...</>}
+      </Container>
   );
 }
 

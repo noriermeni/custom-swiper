@@ -1,0 +1,15 @@
+@import "../../styles/main";
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  min-width: 50px;
+  padding-inline: 10px;
+  cursor: pointer;
+  @include sm {
+    display: none;
+  }
+}
+.rightIconWrapper {
+  transform: rotateY(180deg);
+}
